@@ -1,6 +1,8 @@
 import os
 import requests
 import re
+import shutil
+
 
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 MODEL = "llama-3.3-70b-versatile"
@@ -72,8 +74,14 @@ def process_code(file_path):
         with open(os.path.join(OUTPUT_DIR, "review.txt"), "w", encoding="utf-8") as f_review:
             f_review.write(explanation)
 
-        print("[✓] Code reviewed and saved to output/fixed_code.py")
-        print("[✓] Explanation saved to output/review.txt")
+        # ✅ Also write to reviewed_code.py at root level
+        with open("reviewed_code.py", "w", encoding="utf-8") as f_main:
+            f_main.write(code_only)
+
+        print("[✓] Code reviewed and saved to:")
+        print("   → output/fixed_code.py")
+        print("   → reviewed_code.py")
+        print("   → output/review.txt")
 
     except Exception as e:
         print("[!] Error reviewing code:", e)
