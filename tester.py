@@ -33,7 +33,7 @@ MODEL = "llama-3.3-70b-versatile"
 
 # ────── Read Reviewed Code ──────
 try:
-    with open("/output/fixed_code.py", "r") as file:
+    with open("output/fixed_code.py", "r") as file:
         reviewed_code = file.read()
         logging.info("✅ Successfully read reviewed_code.py")
 except FileNotFoundError:
