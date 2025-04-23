@@ -3,7 +3,7 @@ import requests
 import re
 
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
-MODEL = "mistralai/mixtral-8x7b-instruct"
+MODEL = "llama-3.3-70b-versatile"
 GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 
