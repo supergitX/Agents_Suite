@@ -34,7 +34,7 @@ jobs:
         run: |
           python code_review.py  
         env:
-            API_KEY_NAME: ${{ secrets.API_KEY_NAME }}
+            API_KEY: ${{ secrets.GROQ_API_KEY }}
 
       - name: Commit fixed code and review to debug branch
         run: |
