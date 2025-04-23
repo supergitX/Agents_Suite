@@ -1,7 +1,6 @@
 import os
 import datetime
 import re
-import yaml
 from pathlib import Path
 import google.generativeai as genai
 
