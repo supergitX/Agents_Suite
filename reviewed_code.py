@@ -23,6 +23,7 @@ def divide_numbers(a, b):
 
     return a / b
 
+
 # Example usage:
 try:
     print(divide_numbers(10, 2))  # Should print 5.0
