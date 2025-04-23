@@ -1,0 +1,46 @@
+name: Code Review and Debugging
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  review-and-debug:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'  # You can use another version if needed
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Install from requirements.txt
+          
+      - name: Ensure output directory exists
+        run: mkdir -p output
+        
+      - name: Run the code review and fix
+        run: |
+          python app.py  # Assuming 'app.py' is your script that processes the code
+        env:
+            API_KEY_NAME: ${{ secrets.API_KEY_NAME }}
+
+      - name: Commit fixed code and review to debug branch
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+
+          git add output/ output/fixed_code.py output/review.txt  # Add the new files
+          git commit -m "Review and debugged code" || echo "No changes to commit"
+          git push origin main --force
