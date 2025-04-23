@@ -46,7 +46,11 @@ def main():
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(generated_code)
 
+    with open("buggy_code.py", "w", encoding="utf-8") as f_main:
+            f_main.write(code_only)
+
     print(f"✅ Code generated and saved to {output_file}")
+    print("Code also saved as buggy_code in main")
 
 if __name__ == "__main__":
     main()
