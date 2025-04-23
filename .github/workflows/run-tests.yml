@@ -5,7 +5,7 @@ on:
     branches:
       - main  # Adjust the branch as needed
     paths:
-      - output/fixed_code.py  # Ensure the fixed code triggers this workflow
+      - reviewed_code.py  # Ensure the fixed code triggers this workflow
   workflow_dispatch:
 
 permissions:
@@ -47,6 +47,6 @@ jobs:
 
           git checkout -B test
 
-          git add test_reviewed_code.py test_generation.log output/fixed_code.py
+          git add test_reviewed_code.py test_generation.log reviewed_code.py
           git commit -m "🧪 Auto: generated tests + detailed log from master" || echo "No changes to commit"
           git push origin test --force
