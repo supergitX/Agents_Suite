@@ -2,13 +2,13 @@ import os
 import requests
 import re
 
-API_KEY = os.environ.get("GROQ_API_KEY")
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY")
 MODEL = "mistralai/mixtral-8x7b-instruct"
-API_URL = "https://openrouter.ai/api/v1/chat/completions"
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 
 HEADERS = {
-    "Authorization": f"Bearer {API_KEY}",
+    "Authorization": f"Bearer {GROQ_API_KEY}",
     "Content-Type": "application/json",
     #"HTTP-Referer": "http://localhost",  # Replace with your project site or GitHub if deploying
     "X-Title": "Code Review CLI Tool"
@@ -50,7 +50,7 @@ def review_code(code_text):
         ]
     }
 
-    response = requests.post(API_URL, headers=HEADERS, json=payload)
+    response = requests.post(GROQ_API_URL, headers=HEADERS, json=payload)
     response.raise_for_status()
 
     content = response.json()["choices"][0]["message"]["content"]
