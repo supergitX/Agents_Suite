@@ -32,7 +32,7 @@ jobs:
         
       - name: Run the code review and fix
         run: |
-          python app.py  # Assuming 'app.py' is your script that processes the code
+          python code_review.py  
         env:
             API_KEY_NAME: ${{ secrets.API_KEY_NAME }}
 
