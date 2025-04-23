@@ -1,25 +1,33 @@
+# corrected_code.py
+
 def divide_numbers(a, b):
     """
-    Divide two numbers.
+    Divides two numbers and returns the result.
 
     Args:
         a (float): The dividend.
         b (float): The divisor.
 
     Returns:
-        float: The division result if b is not zero, otherwise None.
+        float: The division result.
 
     Raises:
-        ValueError: If b is zero.
+        ZeroDivisionError: If the divisor is 0.
+        TypeError: If either a or b is not a number.
     """
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("Both a and b must be numbers")
     if b == 0:
-        raise ValueError("Cannot divide by zero.")
+        raise ZeroDivisionError("Cannot divide by zero")
     return a / b
 
 try:
-    print(divide_numbers(10, 0))
-except ValueError as e:
-    print(f"Error: {e}")
+    print("Result:", divide_numbers(10, 0))
+except ZeroDivisionError as e:
+    print("Error:", e)
 
-# Example usage with valid input
-print(divide_numbers(10, 2))
+# Example usage
+try:
+    print("Result:", divide_numbers(10, 2))
+except Exception as e:
+    print("An error occurred:", e)
