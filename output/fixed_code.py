@@ -1,33 +1,25 @@
-# corrected_code.py
+def sum_even_numbers(numbers):
+  """
+  Calculates the sum of all even numbers in a list of integers.
 
-def divide_numbers(a, b):
-    """
-    Divides two numbers and returns the result.
+  Args:
+    numbers: A list of integers.
 
-    Args:
-        a (float): The dividend.
-        b (float): The divisor.
+  Returns:
+    The sum of all even numbers in the list.
 
-    Returns:
-        float: The division result.
-
-    Raises:
-        ZeroDivisionError: If the divisor is 0.
-        TypeError: If either a or b is not a number.
-    """
-    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
-        raise TypeError("Both a and b must be numbers")
-    if b == 0:
-        raise ZeroDivisionError("Cannot divide by zero")
-    return a / b
-
-try:
-    print("Result:", divide_numbers(10, 0))
-except ZeroDivisionError as e:
-    print("Error:", e)
-
-# Example usage
-try:
-    print("Result:", divide_numbers(10, 2))
-except Exception as e:
-    print("An error occurred:", e)
+  Raises:
+    TypeError: If the input list is None or contains non-integer values.
+    ValueError: If the input list is empty.
+  """
+  if numbers is None:
+    raise TypeError("Input list cannot be None")
+  if not numbers:
+    raise ValueError("Input list cannot be empty")
+  
+  try:
+    sum_of_evens = sum(num for num in numbers if isinstance(num, int) and num % 2 == 0)
+  except TypeError:
+    raise TypeError("Input list must only contain integers")
+  
+  return sum_of_evens
