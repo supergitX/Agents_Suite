@@ -1,11 +1,10 @@
 name: Code Review and Debugging
 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - buggy_code.py
+  workflow_run:
+    workflows: ["Code Generator on Prompt Input"]  # <-- Name of your reviewer workflow YAML
+    types:
+      - completed
   workflow_dispatch:
 
 permissions:
@@ -13,6 +12,7 @@ permissions:
 
 jobs:
   review-and-debug:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
