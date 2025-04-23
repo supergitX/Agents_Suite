@@ -42,8 +42,8 @@ def generate_code_from_prompt(prompt: str) -> str:
 def main():
     prompt = read_prompt_from_file("input.txt")
     generated_code = generate_code_from_prompt(prompt)
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    output_file = OUTPUT_DIR / f"{timestamp}_generated.py"
+    #timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    output_file = OUTPUT_DIR / "generated.py"
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(generated_code)
 
