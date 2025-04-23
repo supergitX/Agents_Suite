@@ -1,13 +1,18 @@
 name: Run Tests on Reviewed Code
 
+#on:
+ # push:
+  #  branches:
+  #    - main  # Adjust the branch as needed
+  #  paths:
+ #     - reviewed_code.py 
+ #workflow_dispatch:
 on:
-  push:
-    branches:
-      - main  # Adjust the branch as needed
-    paths:
-      - reviewed_code.py 
+  workflow_run:
+    workflows: ["Reviewer Workflow"]  # <-- Name of your reviewer workflow YAML
+    types:
+      - completed
   workflow_dispatch:
-
 permissions:
   contents: write
 
