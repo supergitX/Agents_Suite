@@ -5,7 +5,7 @@ on:
     branches:
       - main  # Adjust the branch as needed
     paths:
-      - reviewed_code.py  
+      - 'reviewed_code.py'  
   workflow_dispatch:
 
 permissions:
