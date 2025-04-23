@@ -1,1 +1,1 @@
-Write a Python function that accepts a list of integers and returns the sum of all the even numbers in the list.
+Write a Python function that accepts a list of integers and returns the sum of all the even numbers in the list..
