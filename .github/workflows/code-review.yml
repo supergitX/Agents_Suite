@@ -3,11 +3,16 @@ name: Code Review
 on:
   push:
     paths:
-      - 'buggy_code.py'  # Trigger workflow only when this file is modified
-  workflow_dispatch:  # Also allow manual runs from GitHub Actions
-
+      - buggy_code.py
+  workflow_run:
+    workflows: ["Code Generator on Prompt Input"]  # <-- Name of your reviewer workflow YAML
+    types:
+      - completed
+  workflow_dispatch:
+  
 jobs:
   review:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:
