@@ -10,8 +10,8 @@ if not GROQ_API_KEY:
     exit(1)
 
 # Groq model and endpoint
-MODEL = "llama-3-70b-8192"  # Corrected to a real model variant
-GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
+MODEL = "deepseek-r1-distill-llama-70b"  # Corrected to a real model variant
+GROQ_API_URL = "https://api.groq.com/openai/v1/models"
 HEADERS = {
     "Authorization": f"Bearer {GROQ_API_KEY}",
     "Content-Type": "application/json",
