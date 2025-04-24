@@ -6,7 +6,8 @@ import requests
 # Load API key from environment variable
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 if not GROQ_API_KEY:
-    raise EnvironmentError("GROQ_API_KEY is not set in the environment variables.")
+    log_message("Error: GROQ_API_KEY environment variable is not set.")
+    exit(1)
 
 # Groq model and endpoint
 MODEL = "llama-3-70b-8192"  # Corrected to a real model variant
