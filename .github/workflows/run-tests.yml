@@ -39,7 +39,7 @@ jobs:
         run: |
           echo "======= 🚀 Test Run - $(date) =======" >> test_generation.log
           echo "===== 🧪 Running Python Test Case Generation =====" >> test_generation.log
-          python tester.py >> test_generation.log 2>&1
+          python agents/tester.py >> test_generation.log 2>&1
 
           echo "===== 🧪 Pytest Output =====" >> test_generation.log
           pytest test_reviewed_code.py -v --tb=long | tee -a test_generation.log || true
