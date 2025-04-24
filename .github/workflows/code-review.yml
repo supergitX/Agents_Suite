@@ -1,4 +1,4 @@
-name: Code Review with Groq API
+name: Code Review 
 
 on:
   push:
