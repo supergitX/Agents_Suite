@@ -1,4 +1,4 @@
-name: Code Review and Debugging
+name: Code Optimizer
 
 on:
   workflow_run:
