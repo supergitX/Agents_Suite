@@ -34,7 +34,7 @@ jobs:
         
       - name: Run the code review and fix
         run: |
-          python agents/code_review.py  
+          python agents/optimizer.py  
         env:
             GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
 
