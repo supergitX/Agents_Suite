@@ -2,7 +2,7 @@ name: Code Optimizer
 
 on:
   workflow_run:
-    workflows: ["Code Generator on Prompt Input"]  # <-- Name of your reviewer workflow YAML
+    workflows: ["Code Review"]  # <-- Name of your reviewer workflow YAML
     types:
       - completed
   workflow_dispatch:
