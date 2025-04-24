@@ -21,7 +21,7 @@ def log_message(message):
     """Logs a message with timestamp to log file and prints it."""
     log_folder = os.path.join(os.getcwd(), "logs")
     os.makedirs(log_folder, exist_ok=True)
-    log_file = os.path.join(log_folder, "review_log.txt")
+    log_file = os.path.join(log_folder, "review_log.md")
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     with open(log_file, "a", encoding="utf-8") as log:
