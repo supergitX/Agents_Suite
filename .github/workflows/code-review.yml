@@ -33,7 +33,7 @@ jobs:
       env:
         GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       run: |
-        python reviewer.py --file buggy_code.py
+        python agents/reviewer.py --file buggy_code.py
 
     - name: Upload Review Output
       if: success()
