@@ -10,6 +10,9 @@ on:
       - completed
   workflow_dispatch:
   
+permissions:
+  contents: write  # Allows pushing changes to the repo
+
 jobs:
   review:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
