@@ -9,7 +9,7 @@ name: Run Tests on Reviewed Code
  #workflow_dispatch:
 on:
   workflow_run:
-    workflows: ["Code Review and Debugging"]  # <-- Name of your reviewer workflow YAML
+    workflows: ["Code Optimizer"]  # <-- Name of your reviewer workflow YAML
     types:
       - completed
   workflow_dispatch:
