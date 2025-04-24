@@ -1,15 +1,15 @@
-def sum_of_evens(numbers):
-  """
-  Calculates the sum of all even numbers in a list.
+def sum_even_numbers(numbers):
+    """
+    Calculate the sum of all even numbers in a list of integers.
 
-  Args:
-    numbers: A list of integers.
+    Args:
+      numbers: A list of integers.
 
-  Returns:
-    The sum of all even numbers in the list.
-  """
-  sum_even = 0
-  for number in numbers:
-    if number % 2 == 0:
-      sum_even += number
-  return sum_even
+    Returns:
+      The sum of all even numbers in the list.
+    """
+    sum_of_evens = 0
+    for number in numbers:
+        if number % 2 == 0:
+            sum_of_evens += number
+    return sum_of_evens
