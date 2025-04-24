@@ -30,7 +30,7 @@ jobs:
           pip install google-generativeai
 
       - name: Run code generator
-        run: python code_generator.py
+        run: python agents/code_generator.py
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
