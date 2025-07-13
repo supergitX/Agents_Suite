@@ -1,18 +1,27 @@
-def sum_of_evens(numbers):
+def factorial(n):
     """
-    Calculates the sum of all even numbers in a list of integers.
+    Calculate the factorial of a given non-negative integer.
 
     Args:
-        numbers: A list of integers.
+        n (int): A non-negative integer.
 
     Returns:
-        The sum of all even numbers in the list.
+        int: The factorial of n.
 
     Raises:
-        TypeError: If the input is not a list or contains non-integer values.
+        ValueError: If n is a negative integer or not an integer.
     """
-    if not isinstance(numbers, list) or not all(isinstance(x, int) for x in numbers):
-        raise TypeError("Input must be a list of integers.")
-    
-    even_sum = sum(num for num in numbers if num % 2 == 0)
-    return even_sum
+    if not isinstance(n, int):
+        raise ValueError("Input must be an integer.")
+    if n < 0:
+        raise ValueError("Input must be a non-negative integer.")
+    elif n == 0 or n == 1:
+        return 1
+    else:
+        result = 1
+        for i in range(2, n + 1):
+            result *= i
+        return result
+
+# Example usage
+print(factorial(5))  # Output: 120
